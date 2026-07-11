@@ -1,0 +1,42 @@
+# MGB Municipality Landslide Visualizer V2
+
+A municipality-focused Streamlit app for MGB barangay-list PDFs.
+
+## Features
+
+- Upload an MGB PDF
+- Extract VHL, HL, and ML landslide entries
+- Aggregate affected barangays by municipality
+- Show an OpenStreetMap hotspot visualization
+- Apply municipality-level yellow-orange-red concentration gradients
+- Download municipality summary CSV
+- Download municipality GeoJSON
+- Download a Facebook-friendly 1080 × 1350 PNG
+- No email input
+
+## Run locally
+
+```bash
+pip install -r requirements.txt
+streamlit run app.py
+```
+
+## Deploy on Streamlit Community Cloud
+
+1. Upload all files in this folder to the root of your GitHub repository.
+2. Set the main file path to `app.py`.
+3. Reboot or redeploy the app.
+
+## Important limitation
+
+The MGB PDF provides place names and susceptibility codes, not exact hazard polygons or coordinates. The app therefore uses municipality centroids and displays approximate hotspot gradients. It must not be presented as an official MGB hazard polygon map.
+
+## Cache
+
+The app automatically creates:
+
+```text
+cache/municipality_cache.csv
+```
+
+This avoids repeating successful municipality geocoding requests.
